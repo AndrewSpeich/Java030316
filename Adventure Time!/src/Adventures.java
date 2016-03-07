@@ -1,8 +1,11 @@
-import java.util.Scanner;
+
 
 public class Adventures {
-
+	static boolean win = false;
 	static Map Mapname = new Map();
+	static int playery =1;
+	static int playerx =1;
+	static String message = new String();
 	
 	public static String renderplace(int place, int place2){
 		String placetype;
@@ -68,26 +71,26 @@ public class Adventures {
 		
 				return render;
 	}	
-	public static void gamerun(){
-		int playery =1;
-		int playerx =1;
+	public static String renderDisplay(){
+	
+		return message;
+	}
+	
+	public static String gamerun(String Direction){
+		
 		int endy = Map.findEndy(Map.yBegin,Map.xBegin);
 		int endx = Map.findEndx(Map.yBegin,Map.xBegin);
-		boolean win = false;
-		Scanner input = new Scanner(System.in);
-		String[] description = new String[4];
-		String Direction = new String();
 		
-		while(!win){
+	
+		String[] description = new String[4];
+		
+		
 			
-			description = Adventures.render(playerx,playery);
 			
-			System.out.println("To the west is " + description[0]+" To the north is "+description[1] ); 
-			System.out.println(" To the east is " + description[2]+" To the south is " + description[3]);
 			
-			System.out.println("Which way would you like to go?.");
 			
-			Direction = (input.next());
+			
+			
 			Direction = Direction.toLowerCase();
 			if (Direction .equals( "west") && playerx > 0){
 				playerx--;
@@ -108,21 +111,17 @@ public class Adventures {
 			if (playery == endy && playerx == endx){
 				win = true;
 			System.out.println("You Win!");
+			
 			}
+description = Adventures.render(playerx,playery);
 			
-		}
+			message = "<html>To the west is " + description[0]+" To the north is <br>"+description[1] + " " + " To the east is " + description[2]+" To the south is " + description[3]+"</html>";
+			
+			Gui.outdisplay.setText(message);
+		
+		return message;
 	}
-			
-	public static void main(String[] args) {
 	
-		Mapname.create();
-		System.out.println("Welcome, all you have to do is get to the door.");
-		
-		Adventures.gamerun();
-		
-		
-
-	}
  
  
  

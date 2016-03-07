@@ -21,7 +21,7 @@ public class Map {
 				}
 			}
 		
-		Map[(int)Math.round(Math.random()*yBegin-1)][(int)Math.round(Math.random()*xBegin-1)][0] = 5;
+		Map[(int)Math.round(Math.random()*(yBegin-1))][(int)Math.round(Math.random()*(xBegin-1))][0] = 5;
 		
 				
 				
