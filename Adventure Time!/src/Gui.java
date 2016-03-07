@@ -22,6 +22,7 @@ public class Gui extends JFrame{
 		Container pane = frame.getContentPane();
 		pane.setLayout(new GridLayout(3,1));
 		
+		
 		pane.add(outdisplay);
 		pane.add(input);
 		pane.add(button);
@@ -35,8 +36,10 @@ public class Gui extends JFrame{
 public static void main(String[] args) {
 
 	Map.create();
+	
 	Gui start = new Gui();
-;
+	Adventures.gamerun(Gui.input.getText());
+	input.setText("where would you like to go");
 	
 	
 

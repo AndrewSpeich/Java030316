@@ -9,11 +9,11 @@ public class buttonHandler implements ActionListener{
 			System.exit(0);
 		}
 		else{
-			System.out.println(Gui.input.getText());
+			
 			Adventures.gamerun(Gui.input.getText());
 			Gui.outdisplay.setText(Adventures.renderDisplay());
 		
-		Gui.input.setText("Where would you like to go?");
+		
 		Gui.input.grabFocus();
 		}
 	}

@@ -72,6 +72,7 @@ public class Adventures {
 				return render;
 	}	
 	public static String renderDisplay(){
+		Adventures.render(playerx,playery);
 	
 		return message;
 	}
@@ -104,13 +105,14 @@ public class Adventures {
 			else if (Direction .equals( "south") && playery < Mapname.yBegin-1){
 				playery++;
 			}
-			else{System.out.println("you cant go that way");}
+			else{
+				Gui.input.setText("you cant go that way");}
 			
 			
 			
 			if (playery == endy && playerx == endx){
 				win = true;
-			System.out.println("You Win!");
+			Gui.input.setText("You Win! click enter to exit");
 			
 			}
 description = Adventures.render(playerx,playery);
